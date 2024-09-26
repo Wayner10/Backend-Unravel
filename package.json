@@ -1,0 +1,25 @@
+{
+  "name": "unra",
+  "version": "1.0.0",
+  "description": "CRUD",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "wayner",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
