@@ -3,7 +3,8 @@ const client = require("../database/db_unravel.js");
 
 const router = express.Router();
 
-//Route to get the categories
+
+//* - - - </> [Route to get the categories] </> - - - *//
 router.get("/categories", async (req, res) => {
   try {
     const result = await client.query("SELECT * FROM tb_categories");
@@ -14,7 +15,9 @@ router.get("/categories", async (req, res) => {
   }
 });
 
-//Route to get categories by ID
+
+
+//* - - - </> [Route to get the users by ID] </> - - - *//
 router.get("/categories/:category_id", async (req, res) => {
   const category_id = parseInt(req.params.category_id);
   try {
@@ -32,7 +35,9 @@ router.get("/categories/:category_id", async (req, res) => {
   }
 });
 
-// Route to delete categories by ID
+
+
+//* - - - </> [Route to delete the categories by ID] </> - - - *//
 router.delete("/categories/:category_id", async (req, res) => {
   const category_id = parseInt(req.params.category_id);
   try {
@@ -53,14 +58,16 @@ router.delete("/categories/:category_id", async (req, res) => {
   }
 });
 
-//Route to create a categories
+
+
+//* - - - </> [Route to create the categories] </> - - - *//
 router.post("/categories", async (req, res) => {
-  const { category_desc } = req.body;
+  const { category_desc, category_status } = req.body;
 
   try {
     const result = await client.query(
-      `INSERT INTO tb_categories (category_desc) VALUES ($1) RETURNING *`,
-      [category_desc]
+      `INSERT INTO tb_categories (category_desc, category_status) VALUES ($1, $2) RETURNING *`,
+      [category_desc, category_status]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -69,15 +76,17 @@ router.post("/categories", async (req, res) => {
   }
 });
 
-// Route to update a categories
+
+
+//* - - - </> [Route to update the categories] </> - - - *//
 router.put("/categories/:category_id", async (req, res) => {
   const category_id = parseInt(req.params.category_id);
-  const { category_desc } = req.body;
+  const { category_desc, category_status } = req.body;
 
   try {
     const result = await client.query(
-      "UPDATE tb_categories SET category_desc = $1 WHERE category_id = $2 RETURNING *",
-      [category_desc, category_id]
+      "UPDATE tb_categories SET category_desc = $1, category_status = $2 WHERE category_id = $3 RETURNING *",
+      [category_desc, category_status, category_id]
     );
 
     if (result.rows.length === 0) {

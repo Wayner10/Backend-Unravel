@@ -3,7 +3,7 @@ const client = require("../database/db_unravel");
 
 const router = express.Router();
 
-//Route to get the reviews
+//* - - - </> [Route to get the reviews] </> - - - *//
 router.get("/reviews", async (req, res) => {
   try {
     const result = await client.query("SELECT * FROM tb_reviews");
@@ -14,7 +14,7 @@ router.get("/reviews", async (req, res) => {
   }
 });
 
-//Route to get reviews by ID
+//* - - - </> [Route to get the reviews by ID] </> - - - *//
 router.get("/reviews/:review_id", async (req, res) => {
   const review_id = parseInt(req.params.review_id);
   try {
@@ -32,7 +32,9 @@ router.get("/reviews/:review_id", async (req, res) => {
   }
 });
 
-// Route to delete reviews by ID
+
+
+//* - - - </> [Route to delete the reviews by ID] </> - - - *//
 router.delete("/reviews/:review_id", async (req, res) => {
   const review_id = parseInt(req.params.review_id);
   try {
@@ -53,7 +55,9 @@ router.delete("/reviews/:review_id", async (req, res) => {
   }
 });
 
-//Route to create a reviews
+
+
+//* - - - </> [Route to create the reviews] </> - - - *//
 router.post("/reviews", async (req, res) => {
   const { region_desc } = req.body;
 
@@ -69,7 +73,9 @@ router.post("/reviews", async (req, res) => {
   }
 });
 
-// Route to update a reviews
+
+
+//* - - - </> [Route to update the reviews] </> - - - *//
 router.post("/reviews", async (req, res) => {
   const { region_desc } = req.body;
 

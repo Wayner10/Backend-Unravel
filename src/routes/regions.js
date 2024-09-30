@@ -3,7 +3,7 @@ const client = require('../database/db_unravel');
 
 const router = express.Router();
 
-//Route to get the regions
+//* - - - </> [Route to get the regions] </> - - - *//
 router.get('/regions', async (req, res) => {
     try {
         const result = await client.query('SELECT * FROM tb_regions');
@@ -14,7 +14,7 @@ router.get('/regions', async (req, res) => {
     }
 });
 
-//Route to get regions by ID
+//* - - - </> [Route to get the regions by ID] </> - - - *//
 router.get('/regions/:region_id', async (req, res) => {
     const region_id = parseInt(req.params.region_id);
     try {
@@ -29,7 +29,8 @@ router.get('/regions/:region_id', async (req, res) => {
     }
 });
 
-// Route to delete regions by ID
+
+//* - - - </> [Route to delete the regions by ID] </> - - - *//
 router.delete('/regions/:region_id', async (req, res) => {
     const region_id = parseInt(req.params.region_id);
     try {
@@ -44,7 +45,9 @@ router.delete('/regions/:region_id', async (req, res) => {
     }
   });
 
-//Route to create a region
+
+
+//* - - - </> [Route to create the regions] </> - - - *//
 router.post('/regions', async (req, res) => {
     const { region_desc } = req.body;
   
@@ -60,7 +63,9 @@ router.post('/regions', async (req, res) => {
     }
   });
 
-// Route to update a region
+
+
+//* - - - </> [Route to update the regions] </> - - - *//
   router.post('/regions', async (req, res) => {
     const { region_desc } = req.body;
   

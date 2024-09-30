@@ -7,7 +7,7 @@ const categoriesRouter = require("./src/routes/categories");
 const regionsRouter = require("./src/routes/regions");
 const reviewsRouter = require("./src/routes/reviews");
 
-app.use(express.json()); // Middleware para analizar cuerpos JSON
+app.use(express.json()); //* - - - </> [Middleware para analizar cuerpos JSON] </> - - - *//
 app.use("/api", placesRouter);
 app.use("/api", usersRouter);
 app.use("/api", categoriesRouter);

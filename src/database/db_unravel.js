@@ -6,7 +6,7 @@ console.log('ENCRYPTION_KEY:', process.env.ENCRYPTION_KEY);
 console.log('ENCRYPTION_IV:', process.env.ENCRYPTION_IV);
 console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
 
-// Función para cifrar la contraseña
+//* - - - </> [Function to encrypt the password] </> - - - *//
 function encrypt(text) {
   const algorithm = 'aes-256-cbc';
   const key = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
@@ -19,10 +19,10 @@ function encrypt(text) {
   return { iv: iv.toString('hex'), encryptedData: encrypted };
 }
 
-// Cifrar la contraseña
+//* - - - </> [Encrypt the password] </> - - - *//
 const encryptedPassword = encrypt(process.env.DB_PASSWORD);
 
-// Desencriptar la contraseña (si es necesario)
+//* - - - </> [Decrypt the password (if necessary)] </> - - - *//
 function decrypt(text) {
   const algorithm = 'aes-256-cbc';
   const key = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
@@ -35,7 +35,7 @@ function decrypt(text) {
   return decrypted;
 }
 
-// Ejemplo de uso de la contraseña desencriptada
+
 const decryptedPassword = decrypt(encryptedPassword);
 
 const client = new Client({
